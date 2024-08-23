@@ -27,9 +27,7 @@ public class Interval1D {
 
     // does this interval intersect that one?
     public boolean intersects(Interval1D that) {
-        if (this.right < that.left) return false;
-        if (that.right < this.left) return false;
-        return true;
+        return right >= that.left && that.right >= left;
     }
 
     // does this interval contain x?
@@ -47,7 +45,19 @@ public class Interval1D {
         return "[" + left + ", " + right + "]";
     }
 
+    @Override
+    public boolean equals(Object y) {
+        if (y == null) return false;
+        if (y.getClass() != this.getClass()) return false;
+        Interval1D b = (Interval1D) y;
+        return left == b.left && right == b.right;
+    }
 
+    // hashCode consistent with equals() and compareTo()
+    @Override
+    public int hashCode() {
+        return 31 * Double.hashCode(left) + Double.hashCode(right) + 6727;
+    }
 
     private static class LeftComparator implements Comparator<Interval1D> {
         public int compare(Interval1D a, Interval1D b) {
@@ -80,9 +90,6 @@ public class Interval1D {
             else                  return  0;
         }
     }
-
-
-
 
     // test client
     public static void main(String[] args) {

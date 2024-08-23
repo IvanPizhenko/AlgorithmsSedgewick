@@ -32,9 +32,30 @@ public class Complex {
     private final double im;   // the imaginary part
 
     // create a new object with the given real and imaginary parts
+    public static Complex of(double real, double imag) {
+        return new Complex(real, imag);
+    }
+
+    public static Complex ofPolar(double magnitude, double phase) {
+        return new Complex(magnitude * Math.cos(phase), magnitude * Math.sin(phase));
+    }
+
     public Complex(double real, double imag) {
         re = real;
         im = imag;
+    }
+
+    @Override
+    public boolean equals(Object y) {
+        if (y == null) return false;
+        if (y.getClass() != this.getClass()) return false;
+        Complex b = (Complex) y;
+        return re == b.re && im == b.im;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * Double.hashCode(re) + Double.hashCode(im) + 6727;
     }
 
     // return a string representation of the invoking Complex object
@@ -56,7 +77,7 @@ public class Complex {
         double imag = a.im + b.im;
         return new Complex(real, imag);
     }
-
+ 
     // return a new Complex object whose value is (this - b)
     public Complex minus(Complex b) {
         Complex a = this;
@@ -117,8 +138,6 @@ public class Complex {
     public Complex tan() {
         return sin().divides(cos());
     }
-    
-
 
     // a static version of plus
     public static Complex plus(Complex a, Complex b) {
@@ -127,8 +146,6 @@ public class Complex {
         Complex sum = new Complex(real, imag);
         return sum;
     }
-
-
 
     // sample client for testing
     public static void main(String[] args) {

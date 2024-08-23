@@ -54,6 +54,7 @@ public class Rational implements Comparable<Rational> {
     }
 
     // return { -1, 0, +1 } if this < that, this = that, or this > that
+    @Override
     public int compareTo(Rational that) {
         long lhs = this.num * that.den;
         long rhs = this.den * that.num;
@@ -63,6 +64,7 @@ public class Rational implements Comparable<Rational> {
     }
 
     // is this Rational object equal to y?
+    @Override
     public boolean equals(Object y) {
         if (y == null) return false;
         if (y.getClass() != this.getClass()) return false;
@@ -71,8 +73,9 @@ public class Rational implements Comparable<Rational> {
     }
 
     // hashCode consistent with equals() and compareTo()
+    @Override
     public int hashCode() {
-        return this.toString().hashCode();
+        return 31 * Long.hashCode(num) + Long.hashCode(den) + 6727;
     }
 
 

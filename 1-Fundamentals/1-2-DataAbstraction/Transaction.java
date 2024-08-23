@@ -55,9 +55,6 @@ public class Transaction implements Comparable<Transaction> {
                                             && (this.when.equals(that.when));
     }
 
-
-
-
     public int hashCode() {
         int hash = 17;
         hash = 31*hash + who.hashCode();
