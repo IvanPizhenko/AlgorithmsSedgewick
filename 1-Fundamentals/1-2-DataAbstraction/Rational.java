@@ -75,7 +75,7 @@ public class Rational implements Comparable<Rational> {
     // hashCode consistent with equals() and compareTo()
     @Override
     public int hashCode() {
-        return 31 * Long.hashCode(num) + Long.hashCode(den) + 6727;
+        return 31 * Long.hashCode(num) + Long.hashCode(den)+ 16337;
     }
 
 

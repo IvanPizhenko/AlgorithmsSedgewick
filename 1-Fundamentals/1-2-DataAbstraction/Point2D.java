@@ -161,12 +161,18 @@ public class Point2D implements Comparable<Point2D> {
 
 
     // does this point equal y?
+    @Override
     public boolean equals(Object other) {
         if (other == this) return true;
         if (other == null) return false;
         if (other.getClass() != this.getClass()) return false;
         Point2D that = (Point2D) other;
         return this.x == that.x && this.y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * Double.hashCode(x) + Double.hashCode(y)+ 16337;
     }
 
     // convert to string

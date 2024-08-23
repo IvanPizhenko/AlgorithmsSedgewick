@@ -55,7 +55,7 @@ public class Complex {
 
     @Override
     public int hashCode() {
-        return 31 * Double.hashCode(re) + Double.hashCode(im) + 6727;
+        return 31 * Double.hashCode(re) + Double.hashCode(im)+ 16337;
     }
 
     // return a string representation of the invoking Complex object

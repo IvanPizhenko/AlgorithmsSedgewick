@@ -56,7 +56,7 @@ public class Interval1D {
     // hashCode consistent with equals() and compareTo()
     @Override
     public int hashCode() {
-        return 31 * Double.hashCode(left) + Double.hashCode(right) + 6727;
+        return 31 * Double.hashCode(left) + Double.hashCode(right)+ 16337;
     }
 
     private static class LeftComparator implements Comparator<Interval1D> {

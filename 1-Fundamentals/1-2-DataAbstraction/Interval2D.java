@@ -36,6 +36,20 @@ public class Interval2D {
         return x + " x " + y;
     }
 
+    @Override
+    public boolean equals(Object y) {
+        if (y == null) return false;
+        if (y.getClass() != this.getClass()) return false;
+        Interval1D b = (Interval1D) y;
+        return x.equals(b.x) && y.equals(b.y);
+    }
+
+    // hashCode consistent with equals() and compareTo()
+    @Override
+    public int hashCode() {
+        return 31 * x.hashCode() + y.hashCode()+ 16337;
+    }
+
     // test client
     public static void main(String[] args) {
         double xlo = Double.parseDouble(args[0]);
