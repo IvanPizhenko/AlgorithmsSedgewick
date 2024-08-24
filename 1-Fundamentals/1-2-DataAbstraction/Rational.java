@@ -78,7 +78,6 @@ public class Rational implements Comparable<Rational> {
         return 31 * Long.hashCode(num) + Long.hashCode(den)+ 16337;
     }
 
-
     // create and return a new rational (r.num + s.num) / (r.den + s.den)
     public static Rational mediant(Rational r, Rational s) {
         return new Rational(r.num + s.num, r.den + s.den);
@@ -107,7 +106,6 @@ public class Rational implements Comparable<Rational> {
         Rational d = new Rational(that.num, this.den);
         return new Rational(c.num * d.num, c.den * d.den);
     }
-
 
     // return this + that, staving off overflow
     public Rational plus(Rational that) {
@@ -139,14 +137,12 @@ public class Rational implements Comparable<Rational> {
         return this.plus(that.negate());
     }
 
-
     public Rational reciprocal() { return new Rational(den, num);  }
 
     // return this / that
     public Rational divides(Rational that) {
         return this.times(that.reciprocal());
     }
-
 
     // test client
     public static void main(String[] args) {
@@ -194,5 +190,4 @@ public class Rational implements Comparable<Rational> {
         z = x.minus(y);
         StdOut.println(z);
     }
-
 }
