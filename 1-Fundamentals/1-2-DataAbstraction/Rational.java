@@ -100,7 +100,6 @@ public class Rational implements Comparable<Rational> {
 
     // return this * that, staving off overflow as much as possible by cross-cancellation
     public Rational times(Rational that) {
-
         // reduce p1/q2 and p2/q1, then multiply, where a = p1/q1 and b = p2/q2
         Rational c = new Rational(this.num, that.den);
         Rational d = new Rational(that.num, this.den);
@@ -109,7 +108,6 @@ public class Rational implements Comparable<Rational> {
 
     // return this + that, staving off overflow
     public Rational plus(Rational that) {
-
         // special cases
         if (this.compareTo(zero) == 0) return that;
         if (that.compareTo(zero) == 0) return this;
